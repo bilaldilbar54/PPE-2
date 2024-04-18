@@ -15,6 +15,7 @@ def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
     while True:
         success, img = cap.read()
         if not success:
+
             break
 
         results = model(img, stream=True)
