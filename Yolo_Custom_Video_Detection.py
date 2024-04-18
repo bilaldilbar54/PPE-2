@@ -58,4 +58,4 @@ def custom_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
     cap.release()
 
 
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()

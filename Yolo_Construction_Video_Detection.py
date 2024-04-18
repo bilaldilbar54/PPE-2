@@ -4,7 +4,7 @@ import math
 
 
 def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
-    video_capture = cv2.CAP_V4L2
+    video_capture = path_x
     cap = cv2.VideoCapture(video_capture)
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
@@ -59,4 +59,4 @@ def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
     cap.release()
 
 
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
