@@ -19,22 +19,6 @@ class UploadFileForm(FlaskForm):
     submit = SubmitField('Run')
 
 
-def is_webcam_available():
-    # Check if the webcam is available
-    cap = cv2.VideoCapture(0)
-    available = cap.isOpened()
-    cap.release()
-    return available
-
-
-@app.route('/const_webcam_feed', methods=['GET', 'POST'])
-def const_webcam_feed():
-    if not is_webcam_available():
-        return "Webcam is not available", 400
-
-    return Response(const_generate_frames_web(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
 def const_generate_frames(path_x=''):
     yolo_output = const_video_detection(path_x)
     for detection_ in yolo_output:
@@ -129,9 +113,9 @@ def const_video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-# @app.route('/const_webcam_feed', methods=['GET', 'POST'])
-# def const_webcam_feed():
-#     return Response(const_generate_frames_web(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/const_webcam_feed', methods=['GET', 'POST'])
+def const_webcam_feed():
+    return Response(const_generate_frames_web(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @app.route('/med_webcam_det', methods=['GET', 'POST'])
