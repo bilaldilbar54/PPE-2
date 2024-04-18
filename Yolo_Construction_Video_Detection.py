@@ -9,7 +9,7 @@ def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
 
-    model = YOLO("YOLO-Weights/const-ppe-detector(3).pt")
+    model = YOLO("const-ppe-detector(3).pt")
     classNames = ['Protective Helmet', 'Shield', 'Jacket', 'Dust Mask', 'Eye Wear', 'Glove', 'Protective Boots']
 
     while True:

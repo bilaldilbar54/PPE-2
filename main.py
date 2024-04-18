@@ -180,7 +180,3 @@ def custom_video_feed():
 def contact_us():
     session.clear()
     return render_template('contact_us.html')
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
